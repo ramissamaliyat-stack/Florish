@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petal & Bloom | Flower Shop</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff8fa;
+  color: #49343b;
+}
+
+header {
+  background: #f8dfe7;
+  text-align: center;
+  padding: 28px 15px;
+}
+
+header h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 36px;
+  color: #a34465;
+}
+
+header p {
+  margin-bottom: 0;
+}
+
+nav {
+  padding: 14px;
+  text-align: center;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+nav a {
+  color: #a34465;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: bold;
+}
+
+h2 {
+  text-align: center;
+  font-family: Georgia, serif;
+  color: #a34465;
+  margin: 32px 0 20px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 14px #e8cbd4;
+  padding-bottom: 18px;
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 14px 0 6px;
+}
+
+.price {
+  color: #a34465;
+  font-weight: bold;
+  font-size: 19px;
+}
+
+button {
+  background: #b75276;
+  color: white;
+  border: none;
+  border-radius: 22px;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #8e3456;
+}
+
+.cart {
+  max-width: 700px;
+  margin: 20px auto 40px;
+  padding: 24px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px #e8cbd4;
+}
+
+.cart h2 {
+  margin-top: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2dfe6;
+}
+
+.cart-item button {
+  padding: 5px 10px;
+  margin: 2px;
+}
+
+.cart-total {
+  font-size: 21px;
+  font-weight: bold;
+  text-align: right;
+  margin: 20px 0;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 7px 0;
+  border: 1px solid #e6c6d1;
+  border-radius: 9px;
+  font: inherit;
+}
+
+.order-button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+}
+
+footer {
+  text-align: center;
+  background: #f8dfe7;
+  padding: 22px;
+  color: #85435a;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px #e8a9bf;
+}
+
+.card img {
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+.card {
+  overflow: hidden;
+}
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 29px;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .card img {
+    height: 135px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .cart {
+    margin: 20px 12px;
+    padding: 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🌷 Flourish 🌷 </h1>
+  <p>Flowers for your sweetest moments ♡</p>
+  <p>Beautiful bouquets, made with love.</p>
+</header>
+
+<nav>
+  <a href="#flowers">Flowers</a>
+  <a href="#cart">My Bouquet 🛒</a>
+</nav>
+
+<h2 id="flowers">Choose Your Flowers 🌸</h2>
+
+<div class="products">
+
+  <div class="card">
+    <img src="flowers/Chandra mallika.jpg"
+         alt="Chandra mallika">
+    <h3>Chandra mallika</h3>
+    <p>Romantic and lovely</p>
+    <p class="price">৳ 80 / stem</p>
+    <button onclick="addFlower('Pink Rose', 80)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/beli ful.jpg"
+         alt="Tulips">
+    <h3>Beli ful</h3>
+    <p>Elegant and cheerful</p>
+    <p class="price">৳ 120 / stem</p>
+    <button onclick="addFlower('Tulip', 120)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/babys breath.jpg"
+         alt="babys breath">
+    <h3>Baby's Breath</h3>
+    <p>Sweet little happiness</p>
+    <p class="price">৳ 50 / stem</p>
+    <button onclick="addFlower('Daisy', 50)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/sunflower.jpg"
+         alt="Sunflowers">
+    <h3>Sunflower</h3>
+    <p>A little sunshine</p>
+    <p class="price">৳ 100 / stem</p>
+    <button onclick="addFlower('Sunflower', 100)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/china aster.jpg"
+         alt="china aster">
+    <h3>China Aster</h3>
+    <p>Pure and graceful</p>
+    <p class="price">৳ 150 / stem</p>
+    <button onclick="addFlower('White Lily', 150)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/carnation.jpg"
+         alt="Carnation flowers">
+    <h3>Carnation</h3>
+    <p>Colorful and charming</p>
+    <p class="price">৳ 70 / stem</p>
+    <button onclick="addFlower('Carnation', 70)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/dalia.jpg"
+         alt="dalia">
+    <h3>Dahlia</h3>
+    <p>Romantic and lovely</p>
+    <p class="price">৳ 80 / stem</p>
+    <button onclick="addFlower('Pink Rose', 80)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/gada.jpg"
+         alt="gada">
+    <h3>Marie Gold</h3>
+    <p>Elegant and cheerful</p>
+    <p class="price">৳ 120 / stem</p>
+    <button onclick="addFlower('Tulip', 120)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/gerbera.jpg"
+         alt="gerbera">
+    <h3>Gerbera</h3>
+    <p>Sweet little happiness</p>
+    <p class="price">৳ 50 / stem</p>
+    <button onclick="addFlower('Daisy', 50)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/Gladiolus.jpg"
+         alt="Gladiolus">
+    <h3>Gladiolus</h3>
+    <p>A little sunshine</p>
+    <p class="price">৳ 100 / stem</p>
+    <button onclick="addFlower('Sunflower', 100)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/hasna hena.jpg"
+         alt="hasna hena">
+    <h3>Hasna Hena</h3>
+    <p>Pure and graceful</p>
+    <p class="price">৳ 150 / stem</p>
+    <button onclick="addFlower('White Lily', 150)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/Hibiscus.jpg"
+         alt="Hibiscus">
+    <h3>Hibiscus</h3>
+    <p>Colorful and charming</p>
+    <p class="price">৳ 70 / stem</p>
+    <button onclick="addFlower('Carnation', 70)">Add to Bouquet +</button>
+  </div>
+  <div class="card">
+    <img src="flowers/kameni.jpg"
+         alt="kameni">
+    <h3>Kameni</h3>
+    <p>A little sunshine</p>
+    <p class="price">৳ 100 / stem</p>
+    <button onclick="addFlower('Sunflower', 100)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/nandini.jpg"
+         alt="nandini">
+    <h3>Nandini</h3>
+    <p>Pure and graceful</p>
+    <p class="price">৳ 150 / stem</p>
+    <button onclick="addFlower('White Lily', 150)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/orchid.jpg"
+         alt="orchid">
+    <h3>Orchid</h3>
+    <p>Colorful and charming</p>
+    <p class="price">৳ 70 / stem</p>
+    <button onclick="addFlower('Carnation', 70)">Add to Bouquet +</button>
+  </div>
+
+   <div class="card">
+    <img src="flowers/pink lily.jpg"
+         alt="Pink Lily">
+    <h3>Pink Lily</h3>
+    <p>Sweet little happiness</p>
+    <p class="price">৳ 50 / stem</p>
+    <button onclick="addFlower('Daisy', 50)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/rajani gondha.jpg"
+         alt="rajani gondha">
+    <h3>Rajani Gondha</h3>
+    <p>A little sunshine</p>
+    <p class="price">৳ 100 / stem</p>
+    <button onclick="addFlower('Sunflower', 100)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/snowball Chandra mallika.jpg"
+         alt="snowball Chandra mallika">
+    <h3>Snowball Chandra Mallika</h3>
+    <p>Pure and graceful</p>
+    <p class="price">৳ 150 / stem</p>
+    <button onclick="addFlower('White Lily', 150)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/statice.jpg"
+         alt="statice">
+    <h3>Statice</h3>
+    <p>Colorful and charming</p>
+    <p class="price">৳ 70 / stem</p>
+    <button onclick="addFlower('Carnation', 70)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/tulip.jpg"
+         alt="tulip">
+    <h3>Tulip</h3>
+    <p>A little sunshine</p>
+    <p class="price">৳ 100 / stem</p>
+    <button onclick="addFlower('Sunflower', 100)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/water lily.jpg"
+         alt="water lily">
+    <h3>Water Lily</h3>
+    <p>Pure and graceful</p>
+    <p class="price">৳ 150 / stem</p>
+    <button onclick="addFlower('White Lily', 150)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/zenia.jpg"
+         alt="zenia">
+    <h3>Zenia</h3>
+    <p>Colorful and charming</p>
+    <p class="price">৳ 70 / stem</p>
+    <button onclick="addFlower('Carnation', 70)">Add to Bouquet +</button>
+  </div>
+
+
+ <div class="card">
+    <img src="flowers/pink rose.jpg"
+         alt="pink rose">
+    <h3>Pink Rose</h3>
+    <p>A little sunshine</p>
+    <p class="price">৳ 100 / stem</p>
+    <button onclick="addFlower('Sunflower', 100)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/red rose.jpg"
+         alt="red rose">
+    <h3>Red Rose</h3>
+    <p>Pure and graceful</p>
+    <p class="price">৳ 150 / stem</p>
+    <button onclick="addFlower('White Lily', 150)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/white rose.jpg"
+         alt="white rose">
+    <h3>White Rose</h3>
+    <p>Colorful and charming</p>
+    <p class="price">৳ 70 / stem</p>
+    <button onclick="addFlower('Carnation', 70)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/tulip.jpg"
+         alt="tulip">
+    <h3>Tulip</h3>
+    <p>A little sunshine</p>
+    <p class="price">৳ 100 / stem</p>
+    <button onclick="addFlower('Sunflower', 100)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/water lily.jpg"
+         alt="water lily">
+    <h3>Water Lily</h3>
+    <p>Pure and graceful</p>
+    <p class="price">৳ 150 / stem</p>
+    <button onclick="addFlower('White Lily', 150)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/zenia.jpg"
+         alt="zenia">
+    <h3>Zenia</h3>
+    <p>Colorful and charming</p>
+    <p class="price">৳ 70 / stem</p>
+    <button onclick="addFlower('Carnation', 70)">Add to Bouquet +</button>
+  </div>
+
+   <div class="card">
+    <img src="flowers/rajani gondha.jpg"
+         alt="rajani gondha">
+    <h3>Rajani Gondha</h3>
+    <p>A little sunshine</p>
+    <p class="price">৳ 100 / stem</p>
+    <button onclick="addFlower('Sunflower', 100)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/snowball Chandra mallika.jpg"
+         alt="snowball Chandra mallika">
+    <h3>Snowball Chandra Mallika</h3>
+    <p>Pure and graceful</p>
+    <p class="price">৳ 150 / stem</p>
+    <button onclick="addFlower('White Lily', 150)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/statice.jpg"
+         alt="statice">
+    <h3>Statice</h3>
+    <p>Colorful and charming</p>
+    <p class="price">৳ 70 / stem</p>
+    <button onclick="addFlower('Carnation', 70)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/tulip.jpg"
+         alt="tulip">
+    <h3>Tulip</h3>
+    <p>A little sunshine</p>
+    <p class="price">৳ 100 / stem</p>
+    <button onclick="addFlower('Sunflower', 100)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/water lily.jpg"
+         alt="water lily">
+    <h3>Water Lily</h3>
+    <p>Pure and graceful</p>
+    <p class="price">৳ 150 / stem</p>
+    <button onclick="addFlower('White Lily', 150)">Add to Bouquet +</button>
+  </div>
+
+  <div class="card">
+    <img src="flowers/zenia.jpg"
+         alt="zenia">
+    <h3>Zenia</h3>
+    <p>Colorful and charming</p>
+    <p class="price">৳ 70 / stem</p>
+    <button onclick="addFlower('Carnation', 70)">Add to Bouquet +</button>
+  </div>
+ 
+
+</div>
+</div>
+<section class="cart" id="cart">
+  <h2>🛒 Your Dream Bouquet</h2>
+  <div id="cart-items">Your bouquet is empty. Pick some flowers! 🌷</div>
+
+  <p class="cart-total">
+    Total: ৳ <span id="total">0</span>
+  </p>
+
+  <h3>Delivery Details</h3>
+  <input id="customer" placeholder="Your name">
+  <input id="phone" placeholder="Your phone number" type="tel">
+  <textarea id="address" placeholder="Your delivery address in Bangladesh"
+            rows="3"></textarea>
+
+  <button class="order-button" onclick="placeOrder()">
+    Order My Bouquet 💗
+  </button>
+  <p style="font-size:12px;text-align:center">
+    Delivery charges are not included in the flower total.
+  </p>
+</section>
+
+<footer>
+  <p>Made with ♡ for flower lovers</p>
+  <p>Petal & Bloom © 2026</p>
+</footer>
+
+<script>
+const cart = {};
+
+function addFlower(name, price) {
+  if (cart[name]) {
+    cart[name].qty++;
+  } else {
+    cart[name] = { price: price, qty: 1 };
+  }
+
+  showCart();
+}
+
+function changeQty(name, amount) {
+  cart[name].qty += amount;
+
+  if (cart[name].qty <= 0) {
+    delete cart[name];
+  }
+
+  showCart();
+}
+
+function showCart() {
+  const items = document.getElementById("cart-items");
+  const totalBox = document.getElementById("total");
+  const names = Object.keys(cart);
+  let total = 0;
+
+  if (names.length === 0) {
+    items.textContent = "Your bouquet is empty. Pick some flowers! 🌷";
+    totalBox.textContent = "0";
+    return;
+  }
+
+  items.innerHTML = "";
+
+  names.forEach(name => {
+    const flower = cart[name];
+    const subtotal = flower.price * flower.qty;
+    total += subtotal;
+
+    const row = document.createElement("div");
+    row.className = "cart-item";
+
+    const label = document.createElement("span");
+    label.textContent =
+      name + " — ৳" + flower.price + " × " + flower.qty +
+      " = ৳" + subtotal;
+
+    const controls = document.createElement("div");
+
+    const minus = document.createElement("button");
+    minus.textContent = "−";
+    minus.setAttribute("aria-label", "Remove one " + name);
+    minus.onclick = () => changeQty(name, -1);
+
+    const plus = document.createElement("button");
+    plus.textContent = "+";
+    plus.setAttribute("aria-label", "Add one " + name);
+    plus.onclick = () => changeQty(name, 1);
+
+    controls.append(minus, plus);
+    row.append(label, controls);
+    items.appendChild(row);
+  });
+
+  totalBox.textContent = total.toLocaleString("en-BD");
+}
+
+function placeOrder() {
+  const customer = document.getElementById("customer").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const names = Object.keys(cart);
+
+  if (names.length === 0) {
+    alert("Please choose some flowers first! 🌸");
+    return;
+  }
+
+  if (!customer || !phone || !address) {
+    alert("Please fill in your name, phone number and address.");
+    return;
+  }
+
+  let message = "Hello! I want to order a bouquet from Petal & Bloom.\n\n";
+  message += "Name: " + customer + "\n";
+  message += "Phone: " + phone + "\n";
+  message += "Address: " + address + "\n\n";
+  message += "My flowers:\n";
+
+  let total = 0;
+
+  names.forEach(name => {
+    const flower = cart[name];
+    const subtotal = flower.price * flower.qty;
+    total += subtotal;
+    message += name + " x " + flower.qty +
+      " = Tk " + subtotal + "\n";
+  });
+
+  message += "\nFlower total: Tk " + total;
+  message += "\nDelivery charge: To be confirmed.";
+
+  // Replace this with your WhatsApp number.
+  const whatsappNumber = "8801XXXXXXXXX";
+
+  if (!/^8801\d{9}$/.test(whatsappNumber)) {
+    alert("Your bouquet is ready! To receive orders, replace the sample WhatsApp number in the code with your own Bangladesh number.");
+    return;
+  }
+
+  window.open(
+    "https://wa.me/" + whatsappNumber +
+    "?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+}
+
+showCart();
+</script>
+
+</body>
+</html>
